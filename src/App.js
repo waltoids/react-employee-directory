@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import DataTable from './components/TableData'
+import SearchObject from './utils/SearchObject'
+import DataContext from './utils/DataContext';
+import employees from './utils/employees.json'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+export default function App() {
+  const [data, setData] = useState([])
+
+   const [query, setQuery] = useState('')
+   const onChangeSearch = (e) => {
+     setQuery(event.target.value)
+   }
+
+  useEffect(() => {
+    setData(SearchObject(employees, query))
+  },[query]);
+
+search
+onclick(button) sort the table by name ascending or decending 
+
+  return(
+    <DataContext.Provider
+      value={{data}}>
+      <div>
+        <div>Filter</div>
+        <div> <DataTable data={data.users}/> </div>
+      </div>
+    </DataContext.Provider>
   );
 }
 
-export default App;
