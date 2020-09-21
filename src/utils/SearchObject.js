@@ -1,7 +1,13 @@
-import axios from 'axios';
+function SearchObject(array, query){
+    return array.filter((item) => {
+        for (const value of Object.values(item)) {
+            const searchValue = value.toString().toLowerCase();
+            if (searchValue.includes(query.toLowerCase())) {
+                return item;
+            }
+        }
 
-export default {
-    getUsers: function() {
-        return axios.get('https://randomuser.me/api/?results=10&nat=us')
-    }
-};
+        return null;
+    });
+}
+export default SearchObject;
