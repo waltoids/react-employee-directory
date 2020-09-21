@@ -3,10 +3,9 @@ import React from 'react';
 function Search(props) {
     const { onChange, name, placeholder } = props;
     return (
-      <div className="search">
+      <div>
         <input
           onChange={onChange}
-          className="searchbox"
           type="text"
           name={name || 'Search'}
           placeholder={ placeholder || 'Search List'}
