@@ -1,5 +1,6 @@
 # React-Employee-Directory
 [link to page](https://waltoids.github.io/react-employee-directory/)
+![Employee Directory](splashscreen.PNG)
 
 # Table of Contents
 - [Description](#description)
